@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="pokemorm" default="alert">
+    <property file=".env" />
+
+    <target name="build">
+        <exec command="composer install" passthru="true" checkreturn="true"/>
+        <if>
+            <equals arg1="${DB_PASSWORD}" arg2="" />
+            <then>
+                <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -e 'DROP DATABASE IF EXISTS ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
+                <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -e 'CREATE DATABASE ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
+            </then>
+            <else>
+                <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -p${DB_PASSWORD} -e 'DROP DATABASE IF EXISTS ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
+                <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -p${DB_PASSWORD} -e 'CREATE DATABASE ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
+            </else>
+        </if>
+
+        <exec command="php artisan migrate:fresh --seed"  passthru="true" checkreturn="true" />
+        <exec command="php artisan key:generate"  passthru="true" checkreturn="true" />
+    </target>
+
+</project>
