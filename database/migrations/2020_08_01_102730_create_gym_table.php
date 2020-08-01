@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpeciesTable extends Migration
+class CreateGymTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateSpeciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('species', function (Blueprint $table) {
+        Schema::create('gym', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('pokedex_number');
-            $table->integer('evolves_to')->nullable();
             $table->string('name');
-            $table->integer('primary_type');
-            $table->integer('secondary_type')->nullable();
-            $table->timestamps();
+            $table->integer('leader');
+            $table->string('badge_name');
+            $table->string('town');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateSpeciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('species');
+        Schema::dropIfExists('gym');
     }
 }

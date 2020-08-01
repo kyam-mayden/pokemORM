@@ -15,6 +15,9 @@ class CreateBattleTable extends Migration
     {
         Schema::create('battle', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('trainer_1');
+            $table->integer('trainer_2');
+            $table->integer('winner');
             $table->timestamps();
         });
     }
