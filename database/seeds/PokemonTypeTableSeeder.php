@@ -59,6 +59,9 @@ class PokemonTypeTableSeeder extends Seeder
                 [
                     'name' => 'Dragon',
                 ],
+                [
+                    'name' => 'Fairy',
+                ],
             ]
         );
     }

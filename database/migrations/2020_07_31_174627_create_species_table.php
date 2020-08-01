@@ -15,12 +15,11 @@ class CreateSpeciesTable extends Migration
     {
         Schema::create('species', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('pokedex_number')->unique();
-            $table->integer('evolves_to')->nullable();
             $table->string('name')->unique();
+            $table->integer('pokedex_number')->unique();
             $table->integer('primary_type')->references('id')->on('pokemon_type');
             $table->integer('secondary_type')->nullable();
-            $table->timestamps();
+            $table->integer('evolves_to')->nullable();
         });
     }
 

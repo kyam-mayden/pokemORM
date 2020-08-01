@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Species extends Model
 {
-    protected $table = 'type';
+    protected $table = 'species';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'pokedex_number',

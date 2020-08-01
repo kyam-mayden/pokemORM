@@ -11,6 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([PokemonTypeTableSeeder::class]);
+        $this->call(
+            [
+                PokemonTypeTableSeeder::class,
+                SpeciesTableSeeder::class,
+            ]
+        );
     }
 }
