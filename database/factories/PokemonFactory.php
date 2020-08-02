@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Species;
+use App\PokemonType;
 use App\Trainer;
 use Faker\Generator as Faker;
 
@@ -17,12 +17,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Trainer::class, function (Faker $faker) {
-    return [
-        'first_name' => $faker->firstName,
-        'second_name' => $faker->lastName,
-        'home_town' => $faker->city,
-        'favourite_pokemon' => Species::all()->random()->id,
-        'evil' => rand(0, 1) == 1,
-    ];
-});
+//$factory->define(Trainer::class, function (Faker $faker) {
+//    return [
+//        'first_name' => $faker->firstName,
+//        'second_name' => $faker->lastName,
+//        'home_town' => $faker->city,
+//        'favourite_pokemon' => PokemonType::all()->random()->id,
+//        'evil' => rand(0, 1) == 1,
+//    ];
+//});

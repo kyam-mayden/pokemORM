@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             [
                 PokemonTypeTableSeeder::class,
                 SpeciesTableSeeder::class,
+                TrainerTableSeeder::class,
             ]
         );
     }

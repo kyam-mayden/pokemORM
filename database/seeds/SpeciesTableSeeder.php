@@ -17,7 +17,6 @@ class SpeciesTableSeeder extends Seeder
         fgetcsv($file); // skip the first line
         while (($line = fgetcsv($file)) !== FALSE) {
             $secondaryType = PokemonType::where('name', $line[3])->limit(1)->get()->first();
-//            $evolution = Species::where('name', $line[13])->limit(1)->get()->first();
             Species::insert(
                 [
                     [
@@ -30,8 +29,8 @@ class SpeciesTableSeeder extends Seeder
             );
         }
 
-        // wWe have to loop through each one again to update it's evolution now they
-        // have all been added
+        // We have to loop through each one again to update it's evolution
+        // now that they have all been added
         rewind($file);
         fgetcsv($file); // skip the first line
 

@@ -8,6 +8,8 @@ class Trainer extends Model
 {
     protected $table = 'trainer';
 
+    public $timestamps = true;
+
     protected $fillable = [
         'first_name',
         'second_name',
