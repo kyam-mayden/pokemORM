@@ -17,12 +17,15 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Trainer::class, function (Faker $faker) {
+$allPokemon = Species::all();
+$locations = Location::all();
+
+$factory->define(Trainer::class, function (Faker $faker) use ($allPokemon, $locations) {
     return [
         'first_name' => $faker->firstName,
         'second_name' => $faker->lastName,
-        'home_town' => $faker->city,
-        'favourite_pokemon' => Species::all()->random()->id,
+        'home_town' => $locations->random()->id,
+        'favourite_pokemon' => $allPokemon->random()->id,
         'evil' => rand(0, 1) == 1,
     ];
 });
