@@ -2,8 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\PokemonType;
 use App\Species;
 use App\Trainer;
+use App\Location as Town;
 use Faker\Generator as Faker;
 
 /*
@@ -18,14 +20,16 @@ use Faker\Generator as Faker;
 */
 
 $allPokemon = Species::all();
-$locations = Location::all();
+$allTypes = PokemonType::all();
+$locations = Town::all();
 
-$factory->define(Trainer::class, function (Faker $faker) use ($allPokemon, $locations) {
+$factory->define(Trainer::class, function (Faker $faker) use ($allPokemon, $locations, $allTypes) {
     return [
         'first_name' => $faker->firstName,
         'second_name' => $faker->lastName,
         'home_town' => $locations->random()->id,
+        'favourite_type' => $allTypes->random()->id,
         'favourite_pokemon' => $allPokemon->random()->id,
-        'evil' => rand(0, 1) == 1,
+        'evil' => random_int(0, 1) === 1,
     ];
 });
