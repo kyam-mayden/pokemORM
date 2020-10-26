@@ -16,7 +16,7 @@ class CreateTrainerTable extends Migration
         Schema::create('trainer', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('first_name');
-            $table->string('second_name');
+            $table->string('second_name')->nullable();
             $table->string('home_town');
             $table->integer('favourite_pokemon')->nullable();
             $table->boolean('evil');
