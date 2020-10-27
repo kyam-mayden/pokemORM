@@ -76,7 +76,7 @@ class GymSeeder extends Seeder
             ]
         );
 
-        DB::table('gym_leaders')->insert(
+        DB::table('gym_leader')->insert(
             [
                 [
                     'gym' => Gym::where('name', 'Pewter City Gym')->first()->id,

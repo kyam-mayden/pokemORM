@@ -14,7 +14,7 @@ $factory->define(Battle::class, function (Faker $faker) use ($trainers)
 
     return [
         'trainer_1' => $battleTrainers->first()->id,
-        'trainer_2' => $battleTrainers->last(§)->id,
+        'trainer_2' => $battleTrainers->last()->id,
         'winner' => $battleTrainers->random(1)->first()->id,
     ];
 });

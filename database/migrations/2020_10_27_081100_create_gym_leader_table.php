@@ -27,6 +27,6 @@ class CreateGymLeaderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gym_leaders');
+        Schema::dropIfExists('gym_leader');
     }
 }
