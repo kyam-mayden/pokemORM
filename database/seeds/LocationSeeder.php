@@ -3,7 +3,7 @@
 use App\Location;
 use Illuminate\Database\Seeder;
 
-class LocationTableSeeder extends Seeder
+class LocationSeeder extends Seeder
 {
     /**
      * Seed the application's database.

@@ -6,7 +6,7 @@ use App\Species;
 use App\Trainer;
 use Illuminate\Database\Seeder;
 
-class TrainerTableSeeder extends Seeder
+class TrainerSeeder extends Seeder
 {
     /**
      * Seed the application's database.

@@ -3,7 +3,7 @@
 use App\PokemonType;
 use Illuminate\Database\Seeder;
 
-class PokemonTypeTableSeeder extends Seeder
+class PokemonTypeSeeder extends Seeder
 {
     /**
      * Seed the application's database.

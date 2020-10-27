@@ -10,7 +10,6 @@ class Gym extends Model
 
     protected $fillable = [
         'name',
-        'leader',
         'badge_name',
         'type',
         'town',

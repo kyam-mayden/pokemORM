@@ -6,7 +6,6 @@
 - Developed on a Homestead VM with Phing installed globally
 
 ### Build
-
 - Run phing build from the application root directory to build the app
 - Run php artisan migrate:fresh --seed to reseed the db
 

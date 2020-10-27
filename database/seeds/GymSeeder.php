@@ -6,7 +6,7 @@ use App\PokemonType;
 use App\Trainer;
 use Illuminate\Database\Seeder;
 
-class GymTableSeeder extends Seeder
+class GymSeeder extends Seeder
 {
     /**
      * Seed the application's database.

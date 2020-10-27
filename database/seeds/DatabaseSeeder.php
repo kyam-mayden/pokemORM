@@ -13,12 +13,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
-                PokemonTypeTableSeeder::class,
-                SpeciesTableSeeder::class,
-                LocationTableSeeder::class,
-                TrainerTableSeeder::class,
-                PokemonTableSeeder::class,
-                GymTableSeeder::class
+                PokemonTypeSeeder::class,
+                SpeciesSeeder::class,
+                LocationSeeder::class,
+                TrainerSeeder::class,
+                PokemonSeeder::class,
+                GymSeeder::class,
+                BattleSeeder::class,
             ]
         );
     }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PokemonTableSeeder extends Seeder
+class PokemonSeeder extends Seeder
 {
     /**
      * Seed the application's database.
