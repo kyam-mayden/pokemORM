@@ -19,7 +19,8 @@ class CreateGymTable extends Migration
             $table->integer('leader');
             $table->string('badge_name')->unique();
             $table->integer('type');
-            $table->string('town');
+            $table->integer('town');
+            $table->string('badge_description');
         });
     }
 

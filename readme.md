@@ -11,7 +11,7 @@
 - Run php artisan migrate:fresh --seed to reseed the db
 
 ### Todo
-- Gym seeder
+- Gym Leader join table
 - Battle seeder
 - Elite four?
 - Decide between front end table or just json response
@@ -32,7 +32,6 @@
 - Relationships/joins
 - Sub-selects
 - Unions
-
 
 Further reading
 - Collections
