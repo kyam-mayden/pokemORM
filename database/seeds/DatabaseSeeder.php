@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
                 SpeciesTableSeeder::class,
                 LocationTableSeeder::class,
                 TrainerTableSeeder::class,
+                PokemonTableSeeder::class,
             ]
         );
     }
