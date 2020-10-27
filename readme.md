@@ -11,7 +11,6 @@
 - Run php artisan migrate:fresh --seed to reseed the db
 
 ### Todo
-- Gym Leader join table
 - Battle seeder
 - Elite four?
 - Decide between front end table or just json response
@@ -23,6 +22,7 @@
 - Defining models - table, fillable/guarded, casts
 
 - RAW db queries
+- Query Builder
 #### basics
 - Selects - findOrFail
 - Inserts - firstOrCreate
