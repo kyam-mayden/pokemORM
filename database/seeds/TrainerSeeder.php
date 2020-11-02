@@ -15,7 +15,7 @@ class TrainerSeeder extends Seeder
      */
     public function run()
     {
-        Trainer::insert(
+        $namedTrainers = collect(
             [
                 [
                     'first_name' => 'Ash',
@@ -101,7 +101,10 @@ class TrainerSeeder extends Seeder
                     'evil' => true,
                 ],
             ]
-        );
+        )->each(static function ($data) {
+            $trainer = new Trainer($data);
+            $trainer->save();
+        });
 
         factory(App\Trainer::class, 50)->create();
     }
