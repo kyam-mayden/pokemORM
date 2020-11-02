@@ -17,12 +17,17 @@
 - Defining models - table, fillable/guarded, casts
 
 #### basics
-- Selects - findOrFail
-- Inserts - firstOrCreate
+- Selects
+    - lesson_1/get
+- Inserts
+    - lesson_2/insert
 - Updates
+    - lesson_3/update
 - Deletes
+    - lesson_4/delete
 #### more advanced
 - Relationships/joins
+    - lesson_5/join
 - Sub-selects
 - Unions
 
