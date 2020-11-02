@@ -11,6 +11,10 @@
 |
 */
 
+use App\Http\Controllers\TrainerController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/trainer/new', [TrainerController::class, 'create']);
