@@ -11,6 +11,12 @@
 |
 */
 
+use App\Http\Controllers\PokemonController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/species', [PokemonController::class, 'index']);
+
+Route::get('/species/{id}', [PokemonController::class, 'get']);

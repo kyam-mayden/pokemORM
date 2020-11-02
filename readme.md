@@ -10,18 +10,12 @@
 - Run php artisan migrate:fresh --seed to reseed the db
 
 ### Todo
-- Battle seeder
-- Elite four?
-- Decide between front end table or just json response
-- Decide to TDD?
-- Set up the routes/front end
+- Elite four
 
 ### Branches/Lessons
 #### For each eloquent method, put raw query alongside
 - Defining models - table, fillable/guarded, casts
 
-- RAW db queries
-- Query Builder
 #### basics
 - Selects - findOrFail
 - Inserts - firstOrCreate
