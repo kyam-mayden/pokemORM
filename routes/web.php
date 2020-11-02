@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/trainer/new', [TrainerController::class, 'create']);
+Route::get('/trainer/new/first', [TrainerController::class, 'createNew']);
+Route::get('/trainer/new/loads', [TrainerController::class, 'createMany']);
