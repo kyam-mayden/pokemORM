@@ -19,6 +19,7 @@ class CreatePokemonTable extends Migration
             $table->integer('trainer')->nullable();
             $table->integer('level');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
