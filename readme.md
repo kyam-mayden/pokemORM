@@ -23,10 +23,14 @@
 - RAW db queries
 - Query Builder
 #### basics
-- Selects - findOrFail
-- Inserts - firstOrCreate
+- Selects
+    - lesson_1/get
+- Inserts
+    - lesson_2/insert
 - Updates
+    - lesson_3/update
 - Deletes
+    - lesson_4/delete
 #### more advanced
 - Relationships/joins
 - Sub-selects
