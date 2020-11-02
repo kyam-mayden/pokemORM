@@ -35,6 +35,8 @@
 #### more advanced
 - Relationships/joins
     - lesson_5/join
+- Scopes
+- Accessors/mutators
 - Sub-selects
 - Unions
 
