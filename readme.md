@@ -33,6 +33,7 @@
     - lesson_4/delete
 #### more advanced
 - Relationships/joins
+    - lesson_5/join
 - Sub-selects
 - Unions
 
