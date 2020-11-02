@@ -17,6 +17,7 @@ class CreateGymLeaderTable extends Migration
             $table->bigIncrements('id');
             $table->integer('gym');
             $table->integer('leader');
+            $table->softDeletes();
         });
     }
 

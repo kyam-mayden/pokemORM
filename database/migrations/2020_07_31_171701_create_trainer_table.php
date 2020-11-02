@@ -22,6 +22,7 @@ class CreateTrainerTable extends Migration
             $table->integer('favourite_pokemon')->nullable();
             $table->boolean('evil');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

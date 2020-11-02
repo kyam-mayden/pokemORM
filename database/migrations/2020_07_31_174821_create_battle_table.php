@@ -19,6 +19,7 @@ class CreateBattleTable extends Migration
             $table->integer('trainer_2');
             $table->integer('winner');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
