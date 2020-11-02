@@ -11,6 +11,14 @@
 |
 */
 
+use App\Http\Controllers\BattleController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+// http://pokemorm.test/battle/delete/user/1
+Route::get('/battle/delete/user/{id}', [BattleController::class, 'delete']);
+
+// http://pokemorm.test/battle/delete/user/1/hard
+Route::get('/battle/delete/user/{id}/hard', [BattleController::class, 'hardDelete']);
