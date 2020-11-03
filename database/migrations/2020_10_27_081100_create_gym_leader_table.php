@@ -15,7 +15,7 @@ class CreateGymLeaderTable extends Migration
     {
         Schema::create('gym_leader', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('gym');
+            $table->integer('gym_id');
             $table->integer('leader');
             $table->softDeletes();
         });

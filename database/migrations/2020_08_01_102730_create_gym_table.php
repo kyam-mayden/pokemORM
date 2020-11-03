@@ -17,7 +17,7 @@ class CreateGymTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('badge_name')->unique();
-            $table->integer('type');
+            $table->integer('type_id');
             $table->integer('town');
             $table->string('badge_description');
         });

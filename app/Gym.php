@@ -11,7 +11,7 @@ class Gym extends Model
     protected $fillable = [
         'name',
         'badge_name',
-        'type',
+        'type_id',
         'town',
     ];
 }
