@@ -15,8 +15,8 @@ class CreatePokemonTable extends Migration
     {
         Schema::create('pokemon', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('species');
-            $table->integer('trainer')->nullable();
+            $table->integer('species_id');
+            $table->integer('trainer_id')->nullable();
             $table->integer('level');
             $table->timestamps();
             $table->softDeletes();
