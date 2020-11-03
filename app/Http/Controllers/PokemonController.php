@@ -28,8 +28,10 @@ class PokemonController extends Controller
                 'id' => $id,
             ]
         );
+        return response()->json($pokemon);
 
 //        $pokemon = Species::findOrFail($id);
+//        return response()->json($pokemon);
 
 //        $pokemon = DB::select(
 //            'SELECT id, name FROM species
@@ -41,6 +43,7 @@ class PokemonController extends Controller
 //                'id' => $id,
 //            ]
 //        );
+//        return response()->json($pokemon);
 
 //        $pokemon = Species::select(['id', 'name'])
 //            ->where(
@@ -51,7 +54,11 @@ class PokemonController extends Controller
 //            ->whereNull('evolves_to')
 //            ->orderBy('name', 'DESC')
 //            ->get();
+//
+//        return response()->json($pokemon);
 
-        return response()->json($pokemon);
+//        $pokemon = Species::findOrFail($id);
+//
+//        dd($pokemon->name, $pokemon->pokedex_number);
     }
 }
