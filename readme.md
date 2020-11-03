@@ -10,7 +10,6 @@
 - Run php artisan migrate:fresh --seed to reseed the db
 
 ### Todo
-- Battle seeder
 - Elite four?
 - Decide between front end table or just json response
 - Decide to TDD?
@@ -35,6 +34,8 @@
 #### more advanced
 - Relationships/joins
     - lesson_5/join
+- Scopes
+- Accessors/mutators
 - Sub-selects
 - Unions
 
