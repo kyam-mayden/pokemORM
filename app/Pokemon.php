@@ -15,13 +15,13 @@ class Pokemon extends Model
         'level',
     ];
 
-    public function breed(): BelongsTo
+    public function species(): BelongsTo
     {
-        return $this->belongsTo(Species::class, 'species', 'id');
+        return $this->belongsTo(Species::class, 'species_id', 'id');
     }
-
-    public function trainer(): BelongsTo
-    {
-        return $this->belongsTo(Trainer::class, 'trainer', 'id');
-    }
+//
+//    public function trainer(): BelongsTo
+//    {
+//        return $this->belongsTo(Trainer::class, 'trainer', 'id');
+//    }
 }

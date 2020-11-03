@@ -21,6 +21,6 @@ class Trainer extends Model
 
     public function pokemon(): HasMany
     {
-        return $this->hasMany(Pokemon::class, 'trainer', 'id');
+        return $this->hasMany(Pokemon::class, 'trainer_id', 'id');
     }
 }
