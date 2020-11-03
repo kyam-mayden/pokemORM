@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//http://pokemorm.test/trainer/new
 Route::get('/trainer/new', [TrainerController::class, 'create']);
+
+//http://pokemorm.test/trainer/new/first
 Route::get('/trainer/new/first', [TrainerController::class, 'createNew']);
+
+//http://pokemorm.test/trainer/loads
 Route::get('/trainer/new/loads', [TrainerController::class, 'createMany']);
