@@ -17,4 +17,17 @@ class Trainer extends Model
         'favourite_pokemon',
         'evil',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->second_name}";
+    }
+
+    public function setNameAttribute($name)
+    {
+        [$firstName, $secondName] = explode('_', $name);
+
+        $this->attributes['first_name'] = strtolower($firstName);
+        $this->attributes['second_name'] = strtolower($secondName);
+    }
 }

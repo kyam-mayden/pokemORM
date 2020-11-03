@@ -11,6 +11,14 @@
 |
 */
 
+use App\Http\Controllers\TrainerController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//http://pokemorm.test/trainer
+Route::get('/trainer', [TrainerController::class, 'index']);
+
+//http://pokemorm.test/trainer/15/ROSS_KEMP
+Route::get('/trainer/{id}/{name}', [TrainerController::class, 'update']);
