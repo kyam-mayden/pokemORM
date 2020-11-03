@@ -26,7 +26,6 @@ class TrainerController extends Controller
 
 //        $trainer = Trainer::findOrFail($id);
 //        $pokemon = $trainer->pokemon;
-//        dd($pokemon[0]->species);
 //
 //        $breedsAndPokemon =[];
 //

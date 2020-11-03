@@ -19,9 +19,9 @@ class Pokemon extends Model
     {
         return $this->belongsTo(Species::class, 'species_id', 'id');
     }
-//
-//    public function trainer(): BelongsTo
-//    {
-//        return $this->belongsTo(Trainer::class, 'trainer', 'id');
-//    }
+
+    public function trainer(): BelongsTo
+    {
+        return $this->belongsTo(Trainer::class, 'trainer_id', 'id');
+    }
 }
