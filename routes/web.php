@@ -11,6 +11,11 @@
 |
 */
 
+use App\Http\Controllers\PokemonController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+// http://pokemorm.test/pokemon/12
+Route::get('/pokemon/{level}', [PokemonController::class, 'index']);
