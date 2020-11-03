@@ -48,5 +48,9 @@ class TrainerController extends Controller
 //        $trainer->save();
 //
 //        return response()->json($trainer);
+
+//        $trainer = Trainer::findOrFail($id);
+//
+//        dd($trainer->evil);
     }
 }

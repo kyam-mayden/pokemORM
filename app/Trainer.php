@@ -10,6 +10,10 @@ class Trainer extends Model
 
     protected $softDelete = true;
 
+    protected $casts = [
+        'evil' => 'boolean',
+    ];
+
     protected $fillable = [
         'first_name',
         'second_name',
