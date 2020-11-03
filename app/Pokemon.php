@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pokemon extends Model
 {
@@ -13,4 +14,14 @@ class Pokemon extends Model
         'trainer',
         'level',
     ];
+
+    public function breed(): BelongsTo
+    {
+        return $this->belongsTo(Species::class, 'species', 'id');
+    }
+
+    public function trainer(): BelongsTo
+    {
+        return $this->belongsTo(Trainer::class, 'trainer', 'id');
+    }
 }

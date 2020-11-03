@@ -11,6 +11,12 @@
 |
 */
 
+use App\Http\Controllers\TrainerController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Get All pokemon a trainer has, ordered by level
+// http://pokemorm.test/trainer/1/pokemon
+Route::get('/trainer/{id}/pokemon', [TrainerController::class, 'getPokemon']);

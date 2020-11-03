@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Trainer extends Model
 {
@@ -17,4 +18,9 @@ class Trainer extends Model
         'favourite_pokemon',
         'evil',
     ];
+
+    public function pokemon(): HasMany
+    {
+        return $this->hasMany(Pokemon::class, 'trainer', 'id');
+    }
 }
