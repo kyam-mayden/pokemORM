@@ -23,8 +23,8 @@ $trainers = Trainer::all();
 
 $factory->define(Pokemon::class, function (Faker $faker) use ($species) {
     return [
-    'species' => $species->random()->id,
-    'trainer' => $species->random()->id,
+    'species_id' => $species->random()->id,
+    'trainer_id' => $species->random()->id,
     'level' => $faker->numberBetween(1, 100),
     ];
 });
