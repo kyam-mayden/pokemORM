@@ -59,6 +59,6 @@ class PokemonController extends Controller
 
 //        $pokemon = Species::findOrFail($id);
 //
-//        dd($pokemon->name, $pokemon->pokedex_number);
+//        dd($pokemon->name, $pokemon['pokedex_number']);
     }
 }
