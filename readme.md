@@ -13,20 +13,20 @@
 - Models
     - master
 - Selects
-    - lesson_1/get
+    - lesson1
 - Inserts
-    - lesson_2/insert
+    - lesson2
 - Updates
-    - lesson_3/update
+    - lesson3
 - Deletes
-    - lesson_4/delete
+    - lesson4
 ### Intermediate
 - Relationships/joins
-    - lesson_5/join
+    - lesson5
 - Scopes
-    - lesson_6/scope
+    - lesson6
 - Accessors & mutators
-    - lesson_7/accessors
+    - lesson7
 
 ### Further reading
 - Collections
