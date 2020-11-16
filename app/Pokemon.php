@@ -15,7 +15,7 @@ class Pokemon extends Model
         'level',
     ];
 
-    public function species(): BelongsTo
+    public function breed(): BelongsTo
     {
         return $this->belongsTo(Species::class, 'species_id', 'id');
     }

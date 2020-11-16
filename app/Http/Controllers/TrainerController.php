@@ -48,7 +48,7 @@ class TrainerController extends Controller
 
 //
 //        $trainer = Trainer::where('id', $id)
-//            ->with(['pokemon', 'pokemon.species'])
+//            ->with(['pokemon', 'pokemon.breed'])
 //            ->get();
 //
 //        $breedsAndPokemon = $trainer
@@ -59,7 +59,7 @@ class TrainerController extends Controller
 //            ->map(function ($pokemon) {
 //                return [
 //                    'level' => $pokemon->level,
-//                    'name' => $pokemon->species->name,
+//                    'name' => $pokemon->breed->name,
 //                ];
 //            });
 //
