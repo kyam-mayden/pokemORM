@@ -30,11 +30,12 @@ Route::get('/', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Lesson 2 - Select
+| Lesson 2 - Insert
 |--------------------------------------------------------------------------
 */
 //http://pokemorm.test/trainer/new
 Route::get('/trainer/new', [TrainerController::class, 'create']);
+Route::get('/trainer', [TrainerController::class, 'index']);
 
 //http://pokemorm.test/trainer/new/first
 Route::get('/trainer/new/first', [TrainerController::class, 'createNew']);

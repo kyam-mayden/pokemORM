@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class TrainerController extends Controller
 {
+    public function index()
+    {
+        $trainers = Trainer::get()->reverse();
+        return view('trainerTable')->with('trainers', $trainers);
+    }
+
     public function create()
     {
         DB::INSERT(
@@ -30,7 +36,6 @@ class TrainerController extends Controller
                 true,
             ]
         );
-        $trainer = DB::SELECT('SELECT * FROM trainer ORDER BY id DESC LIMIT 1');
 
 //        $trainer = new Trainer(
 //            [
@@ -44,7 +49,7 @@ class TrainerController extends Controller
 //        );
 //        $trainer->save();
 
-        return response()->json($trainer);
+        return redirect('/trainer');
     }
 
     public function createMany()
@@ -91,13 +96,17 @@ class TrainerController extends Controller
             );
         }
 
-        $trainers = DB::SELECT('SELECT * FROM trainer ORDER BY id DESC LIMIT ?', [count($params)]);
+//        $trainers = [
+//            Trainer::create($params[0]),
+//            Trainer::create($params[1]),
+//            Trainer::create($params[2]),
+//        ];
 
 //        $trainers = Collection::make($params)->map(function($params) {
 //            return Trainer::create($params);
 //        });
 
-        return response()->json($trainers);
+        return redirect('/trainer');
     }
 
     public function createNew()
@@ -124,7 +133,6 @@ class TrainerController extends Controller
                 'Jones',
             ]
         );
-        $trainer = DB::SELECT('SELECT * FROM trainer ORDER BY id DESC LIMIT 1');
 
 //        $trainer = Trainer::firstOrCreate(
 //            [
@@ -139,6 +147,7 @@ class TrainerController extends Controller
 //            ]
 //        );
 
-        return response()->json($trainer);
+        return redirect('/trainer');
+
     }
 }
