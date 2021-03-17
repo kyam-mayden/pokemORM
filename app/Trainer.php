@@ -2,10 +2,12 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Trainer extends Model
 {
+    use HasFactory;
     protected $table = 'trainer';
 
     protected $softDelete = true;

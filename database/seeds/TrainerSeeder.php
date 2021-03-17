@@ -106,6 +106,6 @@ class TrainerSeeder extends Seeder
             $trainer->save();
         });
 
-        factory(App\Trainer::class, 50)->create();
+        Trainer::factory(50)->create();
     }
 }

@@ -1,20 +1,34 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
 use App\Battle;
 use App\Trainer;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$trainers = Trainer::all();
-
-$factory->define(Battle::class, function (Faker $faker) use ($trainers)
+class BattleFactory extends Factory
 {
-    $battleTrainers = $trainers->random(2);
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Battle::class;
 
-    return [
-        'trainer_1' => $battleTrainers->first()->id,
-        'trainer_2' => $battleTrainers->last()->id,
-        'winner' => $battleTrainers->random(1)->first()->id,
-    ];
-});
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        $trainers = Trainer::all();
+        $battleTrainers = $trainers->random(2);
+
+        return [
+            'trainer_1' => $battleTrainers->first()->id,
+            'trainer_2' => $battleTrainers->last()->id,
+            'winner' => $battleTrainers->random(1)->first()->id,
+        ];
+    }
+}

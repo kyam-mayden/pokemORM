@@ -12,6 +12,6 @@ class BattleSeeder extends Seeder
      */
     public function run()
     {
-        factory(Battle::class, 500)->create();
+        Battle::factory(500)->create();
     }
 }
