@@ -28,7 +28,7 @@ class BattleFactory extends Factory
         return [
             'trainer_1' => $battleTrainers->first()->id,
             'trainer_2' => $battleTrainers->last()->id,
-            'winner' => $battleTrainers->random(1)->first()->id,
+            'winner_id' => $battleTrainers->random(1)->first()->id,
         ];
     }
 }

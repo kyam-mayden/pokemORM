@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BattleController;
 use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\TrainerController;
 
@@ -42,3 +43,11 @@ Route::get('/trainer/new/first', [TrainerController::class, 'createNew']);
 
 //http://pokemorm.test/trainer/loads
 Route::get('/trainer/new/loads', [TrainerController::class, 'createMany']);
+
+/*
+|--------------------------------------------------------------------------
+| Lesson 3 - Joins & Relationships
+|--------------------------------------------------------------------------
+*/
+Route::get('/battle', [BattleController::class, 'index']);
+Route::get('/battle/all', [BattleController::class, 'getAll']);

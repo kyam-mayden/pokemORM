@@ -17,7 +17,7 @@ class CreateBattleTable extends Migration
             $table->bigIncrements('id');
             $table->integer('trainer_1');
             $table->integer('trainer_2');
-            $table->integer('winner');
+            $table->integer('winner_id');
             $table->timestamps();
             $table->softDeletes();
         });
