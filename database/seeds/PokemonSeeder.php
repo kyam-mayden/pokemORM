@@ -1,5 +1,6 @@
 <?php
 
+use App\Pokemon;
 use Illuminate\Database\Seeder;
 
 class PokemonSeeder extends Seeder
@@ -11,6 +12,6 @@ class PokemonSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Pokemon::class, 500)->create();
+        Pokemon::factory(500)->create();
     }
 }
