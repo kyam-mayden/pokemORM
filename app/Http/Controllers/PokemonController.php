@@ -13,10 +13,9 @@ class PokemonController extends Controller
         $pokemon = DB::select(
             'SELECT * FROM species'
         );
-        return response()->json($pokemon);
 
 //        $pokemon = Species::all();
-//        return response()->json($pokemon);
+        return view('pokemonTable')->with('species', $pokemon);
     }
 
     public function get(Request $request, $id)
