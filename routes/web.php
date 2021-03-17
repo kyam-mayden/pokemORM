@@ -11,6 +11,14 @@
 |
 */
 
+use App\Http\Controllers\PokemonController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//http://pokemorm.test/species
+Route::get('/species', [PokemonController::class, 'index']);
+
+//http://pokemorm.test/species/64
+Route::get('/species/{id}', [PokemonController::class, 'get']);
