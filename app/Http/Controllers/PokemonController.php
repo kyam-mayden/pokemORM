@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Species;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,6 +21,7 @@ class PokemonController extends Controller
 
     public function get(Request $request, $id)
     {
+        // Find by ID
         $pokemon = DB::select(
             'SELECT * FROM species
               WHERE `id` = :id',
@@ -27,13 +29,15 @@ class PokemonController extends Controller
                 'id' => $id,
             ]
         );
-        return response()->json($pokemon[0]);
 
-//        $pokemon = Species::findOrFail($id);
-//        return response()->json($pokemon);
+        $pokemon = $pokemon[0];
+
+//        $pokemon = Species::find($id);
+
+        // Get specific columns by ID
 
 //        $pokemon = DB::select(
-//            'SELECT id, name FROM species
+//            'SELECT pokedex_number, name FROM species
 //              WHERE id > :id
 //                AND secondary_type IS NOT NULL
 //                AND evolves_to IS NULL
@@ -42,9 +46,9 @@ class PokemonController extends Controller
 //                'id' => $id,
 //            ]
 //        );
-//        return response()->json($pokemon);
+//        $pokemon = $pokemon[0];
 
-//        $pokemon = Species::select(['id', 'name'])
+//        $pokemon = Species::select(['pokedex_number', 'name'])
 //            ->where(
 //                [
 //                    ['id', '>' , $id],
@@ -52,12 +56,26 @@ class PokemonController extends Controller
 //            ])
 //            ->whereNull('evolves_to')
 //            ->orderBy('name', 'DESC')
-//            ->get();
+//            ->first();
 //
-//        return response()->json($pokemon);
+        // Halt execution of app if entry not found
+
+//        $pokemon = DB::select(
+//            'SELECT * FROM species
+//              WHERE `id` = :id',
+//            [
+//                'id' => $id,
+//            ]
+//        );
+//
+//        if (empty($pokemon)) {
+//            throw new ModelNotFoundException();
+//        }
+//
+//        $pokemon = $pokemon[0];
 
 //        $pokemon = Species::findOrFail($id);
 //
-//        dd($pokemon->name, $pokemon['pokedex_number']);
+        return view('singlePokemon')->with('pokemon', $pokemon);
     }
 }
