@@ -14,6 +14,7 @@ class Trainer extends Model
         'first_name',
         'second_name',
         'home_town',
+        'favourite_type',
         'favourite_pokemon',
         'evil',
     ];
