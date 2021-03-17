@@ -49,5 +49,7 @@ Route::get('/trainer/new/loads', [TrainerController::class, 'createMany']);
 | Lesson 3 - Joins & Relationships
 |--------------------------------------------------------------------------
 */
+//http://pokemorm.test/trainer/battle
 Route::get('/battle', [BattleController::class, 'index']);
+//http://pokemorm.test/trainer/battle/all
 Route::get('/battle/all', [BattleController::class, 'getAll']);
