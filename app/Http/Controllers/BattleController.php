@@ -24,6 +24,7 @@ class BattleController extends Controller
                     INNER JOIN trainer AS winner ON battle.winner_id = winner.id'
         );
 
+        // this doesn't render and I'm not sure why yet
 //        $battlesAndTrainers = Battle::with(['trainer1', 'trainer2', 'winner'])->get();
 
         return view('battleTable')->with('battles', $battlesAndTrainers);
