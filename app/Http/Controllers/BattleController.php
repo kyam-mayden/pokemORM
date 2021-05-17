@@ -17,7 +17,8 @@ class BattleController extends Controller
                     t2.id AS trainer_2_id,
                     t2.first_name AS trainer_2_first_name,
                     t2.second_name AS trainer_2_second_name,
-                    winner_id
+                    winner.first_name as winner_first_name,
+                    winner.second_name as winner_second_name
                     FROM battle
                     INNER JOIN trainer AS t1 ON battle.trainer_1 = t1.id
                     INNER JOIN trainer AS t2 ON battle.trainer_2 = t2.id

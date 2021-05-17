@@ -32,10 +32,7 @@
                                         {{ $battle->trainer_2_first_name . ' ' . $battle->trainer_2_second_name  }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $battle->winner_id === $battle->trainer_1_id ?
-                                            $battle->trainer_1_first_name . ' ' . $battle->trainer_1_second_name :
-                                            $battle->trainer_2_first_name . ' ' . $battle->trainer_2_second_name
-                                        }}
+                                        {{ $battle->winner_first_name . ' ' . $battle->winner_second_name  }}
                                     </td>
                                 </tr>
                                 @else
