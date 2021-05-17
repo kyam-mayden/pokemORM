@@ -51,7 +51,8 @@ class BattleController extends Controller
                     s2.name AS trainer_2_favourite,
                     pt2.name AS trainer_2_favourite_type,
 
-                    winner_id
+                    winner.first_name as winner_first_name,
+                    winner.second_name as winner_second_name
                     FROM battle
                     INNER JOIN trainer AS t1 ON battle.trainer_1 = t1.id
                     INNER JOIN trainer AS t2 ON battle.trainer_2 = t2.id
@@ -63,6 +64,7 @@ class BattleController extends Controller
                     INNER JOIN pokemon_type AS pt1 ON s1.primary_type = pt1.id
                     INNER JOIN pokemon_type AS pt2 ON s2.primary_type = pt2.id'
         );
+        $eloquent = false;
 
 //        $battlesAndTrainers = Battle::with(
 //            [
@@ -71,10 +73,11 @@ class BattleController extends Controller
 //                'winner',
 //            ])
 //            ->get();
+//        $eloquent = true;
 
         // Data mapping handled in PHP - results in 1 query per table, no massive join table, also allows joining
         // across databases
 
-        return view('battleTableAll')->with('battles', $battlesAndTrainers);
+        return view('battleTableAll')->with('battles', $battlesAndTrainers)->with('eloquent', $eloquent);
     }
 }

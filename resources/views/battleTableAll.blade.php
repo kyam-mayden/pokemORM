@@ -35,6 +35,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($battles as $battle)
+                                @if(!$eloquent)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $battle->trainer_1_first_name . ' ' . $battle->trainer_1_second_name  }}
@@ -55,34 +56,33 @@
                                         {{ $battle->trainer_2_favourite_type }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $battle->winner_id === $battle->trainer_1_id ?
-                                            $battle->trainer_1_first_name . ' ' . $battle->trainer_1_second_name :
-                                            $battle->trainer_2_first_name . ' ' . $battle->trainer_2_second_name
-                                            }}
+                                        {{ $battle->winner_first_name . ' ' . $battle->winner_second_name  }}
                                     </td>
                                 </tr>
-{{--                                <tr>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer1->first_name . ' ' . $battle->trainer1->second_name }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer1->favouritePokemon->species->name }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer1->favouritePokemon->species->type->name }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer2->full_name  }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer2->favouritePokemon->species->name }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                    {{ $battle->trainer2->favouriteSpeciesTypeName }}--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->winner->full_name }}--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
+                                @else
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer1->full_name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer1->favouritePokemon->species->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer1->favouritePokemon->species->type->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer2->full_name  }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer2->favouritePokemon->species->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer2->favouriteSpeciesTypeName }}
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->winner->full_name }}
+                                    </td>
+                                </tr>
+                                @endif
                             @endforeach
                             </tbody>
                         </table>
