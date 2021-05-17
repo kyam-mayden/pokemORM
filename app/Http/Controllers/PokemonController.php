@@ -37,7 +37,7 @@ class PokemonController extends Controller
         // Get specific columns by ID
 
 //        $pokemon = DB::select(
-//            'SELECT pokedex_number, name FROM species
+//            'SELECT pokedex_number, `name` FROM species
 //              WHERE id > :id
 //                AND secondary_type IS NOT NULL
 //                AND evolves_to IS NULL
@@ -52,8 +52,8 @@ class PokemonController extends Controller
 //            ->where(
 //                [
 //                    ['id', '>' , $id],
-//                    ['secondary_type', '!=', null]
-//            ])
+//                    ['secondary_type', '!=', null],
+//                ])
 //            ->whereNull('evolves_to')
 //            ->orderBy('name', 'DESC')
 //            ->first();

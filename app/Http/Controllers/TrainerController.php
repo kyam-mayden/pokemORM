@@ -93,7 +93,7 @@ class TrainerController extends Controller
                                   created_at,
                                   updated_at)
                           VALUES (?,?,?,?,?,?, NOW(), NOW())',
-                array_values($param)
+                array_values($newTrainer)
             );
         }
 
