@@ -27,8 +27,13 @@ class BattleController extends Controller
         );
         $eloquent = false;
 
-        // this doesn't render and I'm not sure why yet
-//        $battlesAndTrainers = Battle::with(['trainer1', 'trainer2', 'winner'])->orderBy('id')->get();
+//        $battlesAndTrainers = Battle::with(
+//            [
+//                'trainer1',
+//                'trainer2',
+//                'winner',
+//            ])
+//            ->orderBy('id')->get();
 //        $eloquent = true;
 
         return view('battleTable')->with('battles', $battlesAndTrainers)->with('eloquent', $eloquent);
@@ -72,7 +77,7 @@ class BattleController extends Controller
 //                'trainer2',
 //                'winner',
 //            ])
-//            ->get();
+//            ->orderBy('id')->get();
 //        $eloquent = true;
 
         // Data mapping handled in PHP - results in 1 query per table, no massive join table, also allows joining
