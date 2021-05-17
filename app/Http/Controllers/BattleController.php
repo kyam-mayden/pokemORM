@@ -21,13 +21,16 @@ class BattleController extends Controller
                     FROM battle
                     INNER JOIN trainer AS t1 ON battle.trainer_1 = t1.id
                     INNER JOIN trainer AS t2 ON battle.trainer_2 = t2.id
-                    INNER JOIN trainer AS winner ON battle.winner_id = winner.id'
+                    INNER JOIN trainer AS winner ON battle.winner_id = winner.id
+            ORDER BY battle.id ASC'
         );
+        $eloquent = false;
 
         // this doesn't render and I'm not sure why yet
-//        $battlesAndTrainers = Battle::with(['trainer1', 'trainer2', 'winner'])->get();
+//        $battlesAndTrainers = Battle::with(['trainer1', 'trainer2', 'winner'])->orderBy('id')->get();
+//        $eloquent = true;
 
-        return view('battleTable')->with('battles', $battlesAndTrainers);
+        return view('battleTable')->with('battles', $battlesAndTrainers)->with('eloquent', $eloquent);
     }
 
     public function getAll()
@@ -67,6 +70,9 @@ class BattleController extends Controller
 //                'winner',
 //            ])
 //            ->get();
+
+        // Data mapping handled in PHP - results in 1 query per table, no massive join table, also allows joining
+        // across databases
 
         return view('battleTableAll')->with('battles', $battlesAndTrainers);
     }

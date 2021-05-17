@@ -23,6 +23,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($battles as $battle)
+                                @if (!$eloquent)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $battle->trainer_1_first_name . ' ' . $battle->trainer_1_second_name  }}
@@ -34,23 +35,22 @@
                                         {{ $battle->winner_id === $battle->trainer_1_id ?
                                             $battle->trainer_1_first_name . ' ' . $battle->trainer_1_second_name :
                                             $battle->trainer_2_first_name . ' ' . $battle->trainer_2_second_name
-                                            }}
+                                        }}
                                     </td>
                                 </tr>
-{{--                                <tr>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer1->first_name . ' ' . $battle->trainer1->first_name  }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->trainer2->first_name . ' ' . $battle->trainer2->first_name  }}--}}
-{{--                                    </td>--}}
-{{--                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">--}}
-{{--                                        {{ $battle->winner === $battle->trainer_1_id ?--}}
-{{--                                            $battle->trainer1->first_name . ' ' . $battle->trainer1->first_name :--}}
-{{--                                            $battle->trainer2->first_name . ' ' . $battle->trainer2->first_name--}}
-{{--                                            }}--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
+                                @else
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer1->fullName }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->trainer2->fullName }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $battle->winner->fullName }}
+                                    </td>
+                                </tr>
+                                @endif
                             @endforeach
                             </tbody>
                         </table>
