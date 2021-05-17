@@ -55,7 +55,7 @@ class TrainerController extends Controller
 
     public function createMany()
     {
-        $params = [
+        $newTrainers = [
             [
                 'first_name' => 'Vinnie',
                 'second_name' => 'Jones',
@@ -82,7 +82,7 @@ class TrainerController extends Controller
             ],
         ];
 
-        foreach ($params as $param) {
+        foreach ($newTrainers as $newTrainer) {
             DB::INSERT(
                 'INSERT INTO trainer (first_name,
                                   second_name,
@@ -98,12 +98,12 @@ class TrainerController extends Controller
         }
 
 //        $trainers = [
-//            Trainer::create($params[0]),
-//            Trainer::create($params[1]),
-//            Trainer::create($params[2]),
+//            Trainer::create($newTrainers[0]),
+//            Trainer::create($newTrainers[1]),
+//            Trainer::create($newTrainers[2]),
 //        ];
 
-//        $trainers = Collection::make($params)->map(function($params) {
+//        $trainers = Collection::make($newTrainers)->map(function($params) {
 //            return Trainer::create($params);
 //        });
 
