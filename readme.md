@@ -59,4 +59,3 @@
 
 ### Todo
 - Elite four?
-- Nice front end forms/tables
