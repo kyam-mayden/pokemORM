@@ -41,6 +41,14 @@ class Trainer extends Model
         return $this->first_name . ' ' . $this->second_name;
     }
 
+    public function setFullNameAttribute($fullName): string
+    {
+        $parts = explode(" ", $fullName);
+        $this->first_name = strtolower($parts[0]);
+        $this->second_name = strtolower($parts[1]);
+    }
+
+
     public function getFavouriteSpeciesTypeNameAttribute(): string
     {
         return $this->favouritePokemon->species->type->name;
