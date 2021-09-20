@@ -10,6 +10,9 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                             <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Sprite
+                                </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
@@ -22,6 +25,11 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div>
+                                        <img src="{{URL::to('/images/sprites/' . $pokemon->pokedex_number . '.png')}}"/>
+                                    </div>
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="ml-4">
