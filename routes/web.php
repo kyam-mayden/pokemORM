@@ -13,8 +13,8 @@ Route::get('/', function () {
 | Lesson 0 - Models
 |--------------------------------------------------------------------------
 */
-// php artisan tinker
-// $trainer = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);
+// sail artisan tinker
+// $battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);
 /*
 |--------------------------------------------------------------------------
 | Lesson 1 - Select
