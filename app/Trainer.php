@@ -36,6 +36,15 @@ class Trainer extends Model
         );
     }
 
+    public function homeTown(): HasOne
+    {
+        return $this->hasOne(
+            Location::class,
+            'id',
+            'home_town'
+        );
+    }
+
     public function getFullNameAttribute(): string
     {
         return $this->first_name . ' ' . $this->second_name;

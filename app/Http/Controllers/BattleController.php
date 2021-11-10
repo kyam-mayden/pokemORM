@@ -86,6 +86,9 @@ class BattleController extends Controller
         // Data mapping handled in PHP - results in 1 query per table, no massive join table, also allows joining
         // across databases
 
+        // for students
+        // For the first trainer who's first name is 'misty', get the gym name of her home town
+
         return view('battleTableAll')->with('battles', $battlesAndTrainers)->with('eloquent', $eloquent);
     }
 }
