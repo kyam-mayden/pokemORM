@@ -58,6 +58,18 @@ class PokemonController extends Controller
 //            ->orderBy('name', 'DESC')
 //            ->first();
 //
+
+        // For the students to translate
+//                $pokemon = DB::select(
+//            "SELECT `name`, primary_type FROM species
+//              WHERE name LIKE 's%'
+//                AND evolves_to IS NOT NULL
+//              ORDER BY name DESC
+//              LIMIT 5;",
+//                );
+//        $pokemon = $pokemon ?? [];
+//        dd($pokemon);
+
         // Halt execution of app if entry not found
 
 //        $pokemon = DB::select(
