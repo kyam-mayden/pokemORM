@@ -11,8 +11,8 @@
 - Make a .env file: `cp .env.example .env`
 - Install dependencies: `docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php80-composer:latest composer install --ignore-platform-reqs`
 - Make the sail Docker File(s): `php artisan sail:publish`
-- Start the docker containers: `/vendor/bin/sail up -d`
-- Open the container CLI: `/vendor/bin/sail shell`
+- Start the docker containers: `./vendor/bin/sail up -d`
+- Open the container CLI: `./vendor/bin/sail shell`
 - Build the application: `./vendor/bin/phing build`
 
 ## Interact
@@ -67,6 +67,7 @@
 [Article on ORM's](https://fideloper.com/how-we-code)
 
 ### Todo
+- Create a playground https://laravelplayground.com/ for students to use rather than install
 - Elite four?
 - Nice front end forms/tables
 - graphQL api
