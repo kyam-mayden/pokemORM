@@ -49,6 +49,7 @@ class TrainerController extends Controller
 //            ]
 //        );
 //        $trainer->save();
+//        Students create their own
 
         return redirect('/trainer');
     }
@@ -134,19 +135,7 @@ class TrainerController extends Controller
                 'Jones',
             ]
         );
-
-//        $trainer = Trainer::firstOrCreate(
-//            [
-//                'first_name' => 'Vinnie',
-//                'second_name' => 'Jones',
-//            ],
-//            [
-//                'home_town' => 1,
-//                'favourite_pokemon' => 150,
-//                'favourite_type' => 5,
-//                'evil' => true,
-//            ]
-//        );
+        // Students translate
 
         return redirect('/trainer');
 
