@@ -4,14 +4,20 @@
 
 ### Prerequisites
 - Developed on Docker
-### Build
+### Build - can take up to 30 mins
 - Git Clone the repo
 - `cp .env.example .env`
-- `composer install`
+- Install dependencies - `docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php80-composer:latest composer install --ignore-platform-reqs`
 - `php artisan sail:publish`
 - `/vendor/bin/sail up -d`
 - `/vendor/bin/sail shell`
 - `./vendor/bin/phing build`
+### Interact
+- View the database with your MySQL GUI, using the credentials `DB_DATABASE` & `DB_USERNAME` in `.env`
+- Alternatively, navigate to 127.0.0.1 in your browser
+- Also, you can take advantage of Laravel Tinker to interact with the application, eg:
+  - `sail artisan tinker`
+  - `$battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);` - will create a new Battle row
 
 #Lesson Plan
 ### Basics
