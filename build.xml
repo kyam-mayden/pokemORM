@@ -8,8 +8,8 @@
         <if>
             <equals arg1="${DB_PASSWORD}" arg2="" />
             <then>
-                <exec command="mysql -h 127.0.0.1 -u ${DB_USERNAME} -e 'DROP DATABASE IF EXISTS ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
-                <exec command="mysql -h 127.0.0.1 -u ${DB_USERNAME} -e 'CREATE DATABASE ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
+                <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -e 'DROP DATABASE IF EXISTS ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
+                <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -e 'CREATE DATABASE ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
             </then>
             <else>
                 <exec command="mysql -h ${DB_HOST} -u ${DB_USERNAME} -p${DB_PASSWORD} -e 'DROP DATABASE IF EXISTS ${DB_DATABASE}'" passthru="true" checkreturn="true"/>
