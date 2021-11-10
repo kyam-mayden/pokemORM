@@ -22,7 +22,7 @@
   - `sail artisan tinker`
   - `$battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);` - will create a new Battle row
 
-#Lesson Plan
+# Lesson Plan
 ## Basics
 - Models
 - Selects
