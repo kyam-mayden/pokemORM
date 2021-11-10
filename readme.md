@@ -3,10 +3,15 @@
 ##### A laravel app to show how to Eloquent, using pokemon as an example database
 
 ### Prerequisites
-- Developed on a Homestead VM with Phing installed globally
+- Developed on Docker
 ### Build
-- Run phing build from the application root directory to build the app
-- Run php artisan migrate:fresh --seed to reseed the db
+- Git Clone the repo
+- `cp .env.example .env`
+- `composer install`
+- `php artisan sail:publish`
+- `/vendor/bin/sail up -d`
+- `/vendor/bin/sail shell`
+- `./vendor/bin/phing build`
 
 #Lesson Plan
 ### Basics
