@@ -15,6 +15,9 @@
 - Open the container CLI: `./vendor/bin/sail shell`
 - Build the application: `./vendor/bin/phing build`
 
+## Playground
+Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/3b1cc5f0-d5d4-43af-a22a-b207bc45d611)
+
 ## Interact
 - View the database with your MySQL GUI, using the credentials `DB_DATABASE` & `DB_USERNAME` in `.env`
 - Alternatively, navigate to 127.0.0.1 in your browser
