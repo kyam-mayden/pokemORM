@@ -15,8 +15,6 @@
 - Open the container CLI: `./vendor/bin/sail shell`
 - Build the application: `./vendor/bin/phing build`
 
-## Playground
-Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/3b1cc5f0-d5d4-43af-a22a-b207bc45d611)
 
 ## Interact
 - View the database with your MySQL GUI, using the credentials `DB_DATABASE` & `DB_USERNAME` in `.env`
@@ -24,6 +22,9 @@ Alternatively, interact with the models and data via [Laravel Playground](https:
 - Also, you can take advantage of Laravel Tinker to interact with the application, eg:
   - `sail artisan tinker`
   - `$battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);` - will create a new Battle row
+
+## Playground
+Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/4c623444-5360-42fe-b093-8b3c2120db4e)
 
 # Lesson Plan
 ## Basics
