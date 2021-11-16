@@ -71,7 +71,6 @@ Alternatively, interact with the models and data via [Laravel Playground](https:
 [Article on ORM's](https://fideloper.com/how-we-code)
 
 ### Todo
-- Create a playground https://laravelplayground.com/ for students to use rather than install
 - Elite four?
 - Nice front end forms/tables
 - graphQL api
