@@ -24,7 +24,7 @@
   - `$battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);` - will create a new Battle row
 
 ## Playground
-Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/37354162-3664-4dd2-8103-016c2d0eb185)
+Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/c1c08e1a-cc4a-4a1a-9965-2e89efd5e773)
 
 # Lesson Plan
 ## Basics
