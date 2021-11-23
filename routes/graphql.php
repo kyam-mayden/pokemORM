@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\GraphQLControllers\TrainerController;
 
-Route::get('/trainer', function (Request $request) {
-    return ['schese'];
-});
+Route::post('/trainer', [TrainerController::class, 'index']);
