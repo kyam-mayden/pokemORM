@@ -19,11 +19,20 @@ class Species extends Model
         'secondary_type',
     ];
 
-    public function type(): BelongsTo
+    public function primaryType(): BelongsTo
     {
         return $this->belongsTo(
             PokemonType::class,
             'primary_type',
+            'id'
+        );
+    }
+
+    public function secondaryType(): BelongsTo
+    {
+        return $this->belongsTo(
+            PokemonType::class,
+            'secondary_type',
             'id'
         );
     }

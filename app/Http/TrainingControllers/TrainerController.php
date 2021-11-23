@@ -1,11 +1,9 @@
 <?php
-/** @noinspection ALL */
 
-namespace App\Http\Controllers;
+namespace App\Http\TrainingControllers;
 
+use App\Http\Controllers\Controller;
 use App\Trainer;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class TrainerController extends Controller

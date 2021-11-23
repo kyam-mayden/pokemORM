@@ -1,0 +1,27 @@
+query {
+    trainer (id: 5) {
+        id
+        first_name
+        second_name
+        favourite_type
+        #   favourite_pokemon {
+        #       id
+        #       level
+        #       species {
+        #           name
+        #           pokedex_number
+        #           primary_type
+        #           secondary_type
+        #       }
+        #   }
+        trained_pokemon {
+            id
+            species {
+                name
+                pokedex_number
+                primary_type
+                secondary_type
+            }
+        }
+    }
+}

@@ -1,8 +1,9 @@
-<?php /** @noinspection ALL */
+<?php
 
-namespace App\Http\Controllers;
+namespace App\Http\TrainingControllers;
 
 use App\Battle;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 class BattleController extends Controller
