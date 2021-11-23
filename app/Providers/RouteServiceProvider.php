@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapTrainingWebRoutes();
+
         $this->mapGraphQlApiRoutes();
     }
 
@@ -54,6 +56,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapTrainingWebRoutes()
+    {
+        Route::prefix('training')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/training.php'));
     }
 
     /**
