@@ -2,10 +2,11 @@
 
 namespace App\GraphTypes;
 
+use App\Species as SpeciesModel;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
-class Pokemon extends ObjectType
+class TrainedPokemon extends ObjectType
 {
     public function __construct()
     {
@@ -13,6 +14,13 @@ class Pokemon extends ObjectType
             'fields' => [
                 'id' => Type::nonNull(Type::id()),
                 'level' => Type::nonNull(Type::int()),
+                'species' => [
+                    'type' => new Species(),
+                    'description' => 'Pokemon species',
+                    'resolve' => function ($pokemon) {
+                        return SpeciesModel::find($pokemon->species_id);
+                    },
+                ],
             ],
         ];
         parent::__construct($config);

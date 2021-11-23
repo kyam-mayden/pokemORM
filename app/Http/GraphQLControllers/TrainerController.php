@@ -2,8 +2,8 @@
 
 namespace App\Http\GraphQLControllers;
 
-use App\GraphTypes\Pokemon;
-use App\GraphTypes\Pokemon as PokemonType;
+use App\GraphTypes\FavouritePokemon;
+use App\GraphTypes\FavouritePokemon as PokemonType;
 use App\GraphTypes\Trainer as TrainerType;
 use App\Http\Controllers\Controller;
 use App\Pokemon as PokemonModel;

@@ -2,9 +2,7 @@
 
 namespace App\Schema;
 
-use App\GraphTypes\Pokemon as PokemonType;
 use App\GraphTypes\Trainer as TrainerType;
-use App\Pokemon as PokemonModel;
 use App\Trainer as TrainerModel;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
@@ -48,18 +46,6 @@ class SchemaDefinition
                         'resolve' => function ($rootValue, $args) {
                             $id = $args['id'] ?: null;
                             return TrainerModel::findOrFail($id);
-                        },
-                    ],
-                    'pokemon' => [
-                        'type' => new PokemonType(),
-                        'args' => [
-                            'id' => [
-                                'type' => Type::int()
-                            ]
-                        ],
-                        'resolve' => function ($rootValue, $args) {
-                            $id = $args['id'] ?: null;
-                            return PokemonModel::find($id);
                         },
                     ],
                 ],
