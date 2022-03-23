@@ -15,7 +15,12 @@ class PokemonController extends Controller
             'SELECT * FROM species'
         );
 
-//        $pokemon = Species::all();
+        // See that it returns a COLLECTION of MODELS
+//        $pokemon = Species::get();
+
+        // Query builder
+//        $pokemon = Species::where('pokedex_number', '<', 50)->get();
+//        dd($pokemon);
         return view('pokemonTable')->with('species', $pokemon);
     }
 
@@ -32,6 +37,7 @@ class PokemonController extends Controller
 
         $pokemon = $pokemon[0];
 
+//        $pokemon = Species::where('id', $id)->get()->first();
 //        $pokemon = Species::find($id);
 
         // Get specific columns by ID

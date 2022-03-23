@@ -21,7 +21,7 @@
 - Alternatively, navigate to 127.0.0.1 in your browser
 - Also, you can take advantage of Laravel Tinker to interact with the application, eg:
   - `sail artisan tinker`
-  - `$battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);` - will create a new Battle row
+  - `$trainer = App\Trainer::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);` - will create a new Trainer row
 
 ## Playground
 Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/c1c08e1a-cc4a-4a1a-9965-2e89efd5e773)
