@@ -97,12 +97,9 @@ class TrainerController extends Controller
                 array_values($newTrainer)
             );
         }
-
-//        $trainers = [
-//            Trainer::create($newTrainers[0]),
-//            Trainer::create($newTrainers[1]),
-//            Trainer::create($newTrainers[2]),
-//        ];
+//        foreach ($newTrainers as $newTrainer) {
+//            Trainer::create($newTrainer);
+//        }
 
 //        $trainers = Collection::make($newTrainers)->map(function($params) {
 //            return Trainer::create($params);
