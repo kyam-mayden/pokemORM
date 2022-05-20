@@ -24,7 +24,7 @@
   - `$trainer = App\Trainer::create(['first_name' => 'kyam', 'second_name' => 'harris', 'home_town' => 1, 'favourite_type' => 1, 'favourite_pokemon' => 1, 'evil' => 0]);` - will create a new Trainer row
 
 ## Playground
-Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/snippets/c1c08e1a-cc4a-4a1a-9965-2e89efd5e773)
+Alternatively, interact with the models and data via [Laravel Playground](https://laravelplayground.com/#/gist/436ff76c28b27be5b2032e4eb9cc6551)
 
 # Lesson Plan
 ## Basics
