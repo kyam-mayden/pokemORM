@@ -14,7 +14,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 // sail artisan tinker
-// $battle = App\Battle::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);
+// $trainer = App\Trainer::create(['trainer_1' => 1, 'trainer_2' => 2, 'winner_id' => 1]);
 /*
 |--------------------------------------------------------------------------
 | Lesson 1 - Select
