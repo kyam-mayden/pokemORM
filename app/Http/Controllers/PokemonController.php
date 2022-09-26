@@ -19,7 +19,9 @@ class PokemonController extends Controller
 //        $pokemon = Species::get();
 
         // Query builder
-//        $pokemon = Species::where('pokedex_number', '<', 50)->get();
+//        $pokemon = Species // specify table
+//            ::where('pokedex_number', '<', 50) // build query
+//            ->get(); // execute
 //        dd($pokemon);
         return view('pokemonTable')->with('species', $pokemon);
     }
