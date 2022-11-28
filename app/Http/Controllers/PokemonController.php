@@ -2,100 +2,75 @@
 
 namespace App\Http\Controllers;
 
-use App\Species;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Repository\ORM\SpeciesRepository as OrmRepository;
+use App\Repository\SQL\SpeciesRepository as SqlRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PokemonController extends Controller
 {
+    private OrmRepository $orm;
+    private SqlRepository $sql;
+    private bool $isOrm;
+
+    public function __construct(OrmRepository $orm, SqlRepository $sql, bool $isOrm)
+    {
+        $this->orm = $orm;
+        $this->sql = $sql;
+        $this->isOrm = $isOrm;
+    }
+
     public function index()
     {
-        $pokemon = DB::select(
-            'SELECT * FROM species'
-        );
+        if (!$this->isOrm) {
+            $pokemon = $this->sql->getAll();
+        } else {
+            $pokemon = $this->orm->getAll();
+        }
 
-        // See that it returns a COLLECTION of MODELS
-//        $pokemon = Species::get();
-
-        // Query builder
-//        $pokemon = Species // specify table
-//            ::where('pokedex_number', '<', 50) // build query
-//            ->get(); // execute
-//        dd($pokemon);
         return view('pokemonTable')->with('species', $pokemon);
     }
 
     public function get(Request $request, $id)
     {
-        // Find by ID
-        $pokemon = DB::select(
-            'SELECT * FROM species
-              WHERE `id` = :id',
-            [
-                'id' => $id,
-            ]
-        );
+        if (!$this->isOrm) {
+            $pokemon = $this->sql->getById($id);
+        } else {
+            $pokemon = $this->orm->getById($id);
+        }
 
-        $pokemon = $pokemon[0];
-
-//        $pokemon = Species::where('id', $id)->get()->first();
-//        $pokemon = Species::find($id);
-
-        // Get specific columns by ID
-
-//        $pokemon = DB::select(
-//            'SELECT pokedex_number, `name` FROM species
-//              WHERE id > :id
-//                AND secondary_type IS NOT NULL
-//                AND evolves_to IS NULL
-//              ORDER BY name DESC',
-//            [
-//                'id' => $id,
-//            ]
-//        );
-//        $pokemon = $pokemon[0];
-
-//        $pokemon = Species::select(['pokedex_number', 'name'])
-//            ->where(
-//                [
-//                    ['id', '>' , $id],
-//                    ['secondary_type', '!=', null],
-//                ])
-//            ->whereNull('evolves_to')
-//            ->orderBy('name', 'DESC')
-//            ->first();
-//
-
-        // For the students to translate
-//                $pokemon = DB::select(
-//            "SELECT `name`, primary_type FROM species
-//              WHERE name LIKE 's%'
-//                AND evolves_to IS NOT NULL
-//              ORDER BY name DESC
-//              LIMIT 5;",
-//                );
-//        $pokemon = $pokemon ?? [];
-//        dd($pokemon);
-
-        // Halt execution of app if entry not found
-
-//        $pokemon = DB::select(
-//            'SELECT * FROM species
-//              WHERE `id` = :id',
-//            [
-//                'id' => $id,
-//            ]
-//        );
-//
-//        if (empty($pokemon)) {
-//            throw new ModelNotFoundException();
-//        }
-//
-//        $pokemon = $pokemon[0];
-
-//        $pokemon = Species::findOrFail($id);
-//
         return view('singlePokemon')->with('pokemon', $pokemon);
+    }
+
+    public function getStrict(Request $request, $id)
+    {
+        if (!$this->isOrm) {
+            $pokemon = $this->sql->getByIdStrict($id);
+        } else {
+            $pokemon = $this->orm->getByIdStrict($id);
+        }
+
+        return view('singlePokemon')->with('pokemon', $pokemon);
+    }
+
+    public function getColumns(Request $request, $id)
+    {
+        if (!$this->isOrm) {
+            $pokemon = $this->sql->getColumnsForId($id);
+        } else {
+            $pokemon = $this->orm->getColumnsForId($id);
+        }
+
+        return view('singlePokemon')->with('pokemon', $pokemon);
+    }
+
+    public function getUnsolved(Request $request)
+    {
+        if (!$this->isOrm) {
+            $pokemon = $this->sql->getUnsolved();
+        } else {
+            $pokemon = $this->orm->getUnsolved();
+        }
+
+        return view('pokemonTableReduced')->with('species', $pokemon);
     }
 }

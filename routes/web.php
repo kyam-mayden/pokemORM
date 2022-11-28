@@ -3,6 +3,7 @@
 use App\Http\Controllers\BattleController;
 use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\TrainerController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,16 @@ Route::get('/species', [PokemonController::class, 'index']);
 
 //http://pokemorm.test/species/64
 Route::get('/species/{id}', [PokemonController::class, 'get']);
+
+//http://pokemorm.test/species/strict/64
+Route::get('/species/strict/{id}', [PokemonController::class, 'getStrict']);
+
+//http://pokemorm.test/species/columns/64
+Route::get('/species/columns/{id}', [PokemonController::class, 'getColumns']);
+
+// student exercise
+//http://pokemorm.test/species/solve
+Route::get('/species/all/solve', [PokemonController::class, 'getUnsolved']);
 
 /*
 |--------------------------------------------------------------------------
