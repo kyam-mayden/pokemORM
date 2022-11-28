@@ -2,11 +2,28 @@
 <body>
 <h1>All Pokemon Trainers</h1>
 <div class="py-12">
-    <a href="{{ url('/trainer/new') }}" class="btn btn-xs btn-info pull-right">Add Vinnie</a>
+    <a href="{{ url('/trainer/new?orm=0') }}" class="btn btn-xs btn-info pull-right">Add Vinnie (SQL)</a>
     <br />
-    <a href="{{ url('/trainer/new/loads') }}" class="btn btn-xs btn-info pull-right">Add Many</a>
+    <a href="{{ url('/trainer/new?orm=1') }}" class="btn btn-xs btn-info pull-right">Add Vinnie (ORM)</a>
     <br />
-    <a href="{{ url('/trainer/new/first') }}" class="btn btn-xs btn-info pull-right">Add Unique</a>
+
+    <br />
+    <a href="{{ url('/trainer/new/loads?orm=0') }}" class="btn btn-xs btn-info pull-right">Add Many(SQL)</a>
+    <br />
+    <a href="{{ url('/trainer/new/loads?orm=0') }}" class="btn btn-xs btn-info pull-right">Add Many(ORM)</a>
+    <br />
+
+    <br />
+    <a href="{{ url('/trainer/new/get?orm=0') }}" class="btn btn-xs btn-info pull-right">Add & Get(SQL)</a>
+    <br />
+    <a href="{{ url('/trainer/new/get?orm=1') }}" class="btn btn-xs btn-info pull-right">Add & Get(ORM)</a>
+    <br />
+
+    <br />
+    <a href="{{ url('/trainer/new/first?orm=0') }}" class="btn btn-xs btn-info pull-right">Add Unique(SQL)</a>
+    <br />
+    <a href="{{ url('/trainer/new/first?orm=1') }}" class="btn btn-xs btn-info pull-right">Add Unique(ORM)</a>
+    <br />
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex flex-col">

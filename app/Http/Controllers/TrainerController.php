@@ -3,6 +3,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\ORM\TrainerRepository as OrmRepository;
+use App\Repository\SQL\TrainerRepository as SqlRepository;
 use App\Trainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -10,6 +12,17 @@ use Illuminate\Support\Facades\DB;
 
 class TrainerController extends Controller
 {
+    private OrmRepository $orm;
+    private SqlRepository $sql;
+    private bool $isOrm;
+
+    public function __construct(OrmRepository $orm, SqlRepository $sql, bool $isOrm)
+    {
+        $this->orm = $orm;
+        $this->sql = $sql;
+        $this->isOrm = $isOrm;
+    }
+
     public function index()
     {
         $trainers = Trainer::get()->reverse();
@@ -18,38 +31,20 @@ class TrainerController extends Controller
 
     public function create()
     {
-        DB::INSERT(
-            'INSERT INTO trainer (first_name,
-                                  second_name,
-                                  home_town,
-                                  favourite_pokemon,
-                                  favourite_type,
-                                  evil,
-                                  created_at,
-                                  updated_at)
-                          VALUES (?,?,?,?,?,?, NOW(), NOW())',
-            [
-                'Vinnie',
-                'Jones',
-                1,
-                150,
-                5,
-                true,
-            ]
-        );
+        $newTrainer = [
+            'first_name' => 'Vinnie',
+            'second_name' => 'Jones',
+            'home_town' => 1,
+            'favourite_pokemon' => 150,
+            'favourite_type' => 5,
+            'evil' => true,
+        ];
 
-//        $trainer = new Trainer(
-//            [
-//                'first_name' => 'Vinnie',
-//                'second_name' => 'Jones',
-//                'home_town' => 1,
-//                'favourite_pokemon' => 150,
-//                'favourite_type' => 5,
-//                'evil' => true,
-//            ]
-//        );
-//        $trainer->save();
-//        Students create their own
+        if (!$this->isOrm) {
+            $this->sql->create($newTrainer);
+        } else {
+            $this->orm->create($newTrainer);
+        }
 
         return redirect('/trainer');
     }
@@ -83,56 +78,51 @@ class TrainerController extends Controller
             ],
         ];
 
-        foreach ($newTrainers as $newTrainer) {
-            DB::INSERT(
-                'INSERT INTO trainer (first_name,
-                                  second_name,
-                                  home_town,
-                                  favourite_pokemon,
-                                  favourite_type,
-                                  evil,
-                                  created_at,
-                                  updated_at)
-                          VALUES (?,?,?,?,?,?, NOW(), NOW())',
-                array_values($newTrainer)
-            );
+        if (!$this->isOrm) {
+            $this->sql->createMany($newTrainers);
+        } else {
+            $this->orm->createMany($newTrainers);
         }
-//        foreach ($newTrainers as $newTrainer) {
-//            Trainer::create($newTrainer);
-//        }
-
-//        $trainers = Collection::make($newTrainers)->map(function($params) {
-//            return Trainer::create($params);
-//        });
 
         return redirect('/trainer');
     }
 
+    public function createAndGet()
+    {
+        $newTrainer = [
+            'first_name' => 'Vinnie',
+            'second_name' => 'Jones',
+            'home_town' => 1,
+            'favourite_pokemon' => 150,
+            'favourite_type' => 5,
+            'evil' => true,
+        ];
+
+        if (!$this->isOrm) {
+            $new = $this->sql->createAndGet($newTrainer);
+        } else {
+            $new = $this->orm->createAndGet($newTrainer);
+        }
+
+        var_dump($new);
+    }
+
     public function createNew()
     {
-        DB::INSERT(
-            'INSERT INTO trainer (first_name,
-                                  second_name,
-                                  home_town,
-                                  favourite_pokemon,
-                                  favourite_type,
-                                  evil,
-                                  created_at,
-                                  updated_at)
-                          SELECT ?,?,?,?,?,?, NOW(), NOW()
-                          WHERE NOT EXISTS (SELECT * FROM trainer WHERE first_name = ? AND second_name = ? LIMIT 1)',
-            [
-                'Vinnie',
-                'Jones',
-                1,
-                150,
-                5,
-                true,
-                'Vinnie',
-                'Jones',
-            ]
-        );
-        // Students translate
+        $newTrainer = [
+            'first_name' => 'Vinnie',
+            'second_name' => 'Jones',
+            'home_town' => 1,
+            'favourite_pokemon' => 150,
+            'favourite_type' => 5,
+            'evil' => true,
+        ];
+
+        if (!$this->isOrm) {
+            $new = $this->sql->createNew($newTrainer);
+        } else {
+            $new = $this->orm->createNew($newTrainer);
+        }
 
         return redirect('/trainer');
 

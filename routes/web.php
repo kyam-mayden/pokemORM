@@ -45,10 +45,11 @@ Route::get('/species/all/solve', [PokemonController::class, 'getUnsolved']);
 //http://pokemorm.test/trainer
 Route::get('/trainer', [TrainerController::class, 'index']);
 Route::get('/trainer/new', [TrainerController::class, 'create']);
-
-Route::get('/trainer/new/first', [TrainerController::class, 'createNew']);
+Route::get('/trainer/new/get', [TrainerController::class, 'createAndGet']);
 
 Route::get('/trainer/new/loads', [TrainerController::class, 'createMany']);
+
+Route::get('/trainer/new/first', [TrainerController::class, 'createNew']);
 
 /*
 |--------------------------------------------------------------------------
