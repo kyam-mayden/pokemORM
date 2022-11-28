@@ -3,6 +3,7 @@
 namespace App\Repository\SQL;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Config;
 use PDO;
 
 class SpeciesRepository
@@ -11,7 +12,18 @@ class SpeciesRepository
 
     public function __construct()
     {
-        $db = new PDO('mysql:host=mysql;dbname=pokemorm', 'user', 'password');
+        $dsn = sprintf(
+            '%s:host=%s;dbname=%s',
+            Config::get('database.default'),
+            Config::get('database.connections.mysql.host'),
+            Config::get('database.connections.mysql.database'),
+        );
+
+        $db = new PDO($dsn,
+            Config::get('database.connections.mysql.username'),
+            Config::get('database.connections.mysql.password')
+        );
+
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
         $this->db = $db;
